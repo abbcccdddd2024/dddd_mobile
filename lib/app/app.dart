@@ -4,13 +4,17 @@ import 'package:dddd_mobile/ui/views/home/home_view.dart';
 import 'package:dddd_mobile/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:dddd_mobile/ui/views/get_camera/get_camera_view.dart';
+import 'package:dddd_mobile/ui/views/settings/settings_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: GetCameraView),
+    MaterialRoute(page: SettingsView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
