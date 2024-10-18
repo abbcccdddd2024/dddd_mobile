@@ -21,13 +21,13 @@ class HomeView extends StackedView<HomeViewModel> {
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                verticalSpaceLarge,
+                verticalSpaceMassive,
                 Column(
                   children: [
                     const Text(
-                      'Hello, STACKED!',
+                      'D.D.D.D',
                       style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.w900,
@@ -36,39 +36,23 @@ class HomeView extends StackedView<HomeViewModel> {
                     verticalSpaceMedium,
                     MaterialButton(
                       color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
+                      onPressed: viewModel.goToGetCameraView,
                       child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
+                        "Čtení z kamery",
+                        style: const TextStyle(color: Colors.white, fontSize: 45),
+                      ),
+                    ),
+                    verticalSpaceMedium,
+                    MaterialButton(
+                      color: Colors.black,
+                      onPressed: viewModel.goToSettingsView,
+                      child: Text(
+                        "Nastavení",
+                        style: const TextStyle(color: Colors.white, fontSize: 45),
                       ),
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showDialog,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
