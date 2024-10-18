@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:dddd_mobile/ui/common/app_colors.dart';
 import 'package:dddd_mobile/ui/common/ui_helpers.dart';
 
 import 'home_viewmodel.dart';
@@ -37,18 +36,18 @@ class HomeView extends StackedView<HomeViewModel> {
                     MaterialButton(
                       color: Colors.black,
                       onPressed: viewModel.goToGetCameraView,
-                      child: Text(
+                      child: const Text(
                         "Čtení z kamery",
-                        style: const TextStyle(color: Colors.white, fontSize: 45),
+                        style: TextStyle(color: Colors.white, fontSize: 45),
                       ),
                     ),
                     verticalSpaceMedium,
                     MaterialButton(
                       color: Colors.black,
                       onPressed: viewModel.goToSettingsView,
-                      child: Text(
+                      child: const Text(
                         "Nastavení",
-                        style: const TextStyle(color: Colors.white, fontSize: 45),
+                        style: TextStyle(color: Colors.white, fontSize: 45),
                       ),
                     ),
                   ],
