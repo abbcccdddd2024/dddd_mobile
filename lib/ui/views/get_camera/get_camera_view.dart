@@ -32,11 +32,11 @@ class GetCameraView extends StackedView<GetCameraViewModel> {
                         onTap: viewModel.readText,
                         onDoubleTap: viewModel.setupTts,
                         onLongPress: viewModel.startLoop,
-                        child: Container(
-                          child: Text(
+                        child: Column(
+                          children: [Text(
                             viewModel.whatIsOnCamera,
                             style: const TextStyle(color: Colors.white, fontSize: 50),
-                          ),
+                          ),]
                         ),
                       ),
                     ),

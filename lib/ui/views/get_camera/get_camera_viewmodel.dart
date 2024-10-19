@@ -64,12 +64,15 @@ class GetCameraViewModel extends FutureViewModel {
       List<DetectedObject> det = [];
 
       for (var detected in detections) {
+        List<String> acceptable = ["chair", "person", "couch", "laptop"];
         DetectedObject newDetected = DetectedObject(
             name: detected["name"],
             confidence: double.parse(detected["confidence"].toString()),
             position: detected["position"],
             distance: double.parse(detected["distance"].toString()));
-        det.add(newDetected);
+        if (acceptable.contains(newDetected.name)) {
+          det.add(newDetected);
+        }
       }
 
       //process it somehow
@@ -78,15 +81,23 @@ class GetCameraViewModel extends FutureViewModel {
       for (var dob in det) {
         String dis = "";
         if (dob.distance != 0) {
-          dis = dob.distance.toString() + " m";
+          if (dob.distance < 0.8) {
+            switch (dob.distance) {
+              case < 0.8:
+                Haptics.vibrate(HapticsType.light);
+              case < 0.6:
+                Haptics.vibrate(HapticsType.medium);
+              case < 0.4:
+                Haptics.vibrate(HapticsType.heavy);
+            }
+          }
+          dis = "${dob.distance} m";
         }
-        text += dob.name + " " + dob.position + " " + dob.distance.toString() + " m\n";
+        text += "${dob.name} ${dob.position} $dis\n";
       }
 
       setWhatIsOnCamera(text);
     }
-
-    print(detections);
   }
 
   void loop() async {
