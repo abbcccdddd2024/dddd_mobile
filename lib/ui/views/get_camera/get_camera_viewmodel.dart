@@ -33,7 +33,7 @@ class GetCameraViewModel extends FutureViewModel {
   void readText() async {
     if (ttsSetupDone == false) await setupTts();
     if (!isSpeaking) {
-      var result = await flutterTts.speak(whatIsOnCamera);
+      await flutterTts.speak(whatIsOnCamera);
       isSpeaking = true;
     }
   }
