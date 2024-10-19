@@ -22,14 +22,26 @@ class GetCameraView extends StackedView<GetCameraViewModel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
               children: [
-                const Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     verticalSpaceSmall,
-                    Text(
-                      "Čekám na slova z kamery..",
+                    const Text(
+                      "Čekám na slova z kamery",
                       style: TextStyle(color: Colors.white, fontSize: 35),
+                    ),
+                    SingleChildScrollView(
+                      child: GestureDetector(
+                        onTap: viewModel.readText,
+                        onDoubleTap: viewModel.setupTts,
+                        child: Container(
+                          child: Text(
+                            viewModel.whatIsOnCamera,
+                            style: const TextStyle(color: Colors.white, fontSize: 50),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
