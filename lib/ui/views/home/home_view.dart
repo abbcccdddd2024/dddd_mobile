@@ -37,7 +37,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       color: Colors.black,
                       onPressed: viewModel.goToGetCameraView,
                       child: const Text(
-                        "Čtení z kamery",
+                        "Camera",
                         style: TextStyle(color: Colors.white, fontSize: 45),
                       ),
                     ),
@@ -46,7 +46,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       color: Colors.black,
                       onPressed: viewModel.goToSettingsView,
                       child: const Text(
-                        "Nastavení",
+                        "Settings",
                         style: TextStyle(color: Colors.white, fontSize: 45),
                       ),
                     ),

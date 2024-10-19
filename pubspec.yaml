@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_tts: ^4.0.2
+  haptic_feedback: ^0.5.1+1
+  http: ^1.2.2
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 

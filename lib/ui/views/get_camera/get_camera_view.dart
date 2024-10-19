@@ -27,14 +27,11 @@ class GetCameraView extends StackedView<GetCameraViewModel> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     verticalSpaceSmall,
-                    const Text(
-                      "Čekám na slova z kamery",
-                      style: TextStyle(color: Colors.white, fontSize: 35),
-                    ),
                     SingleChildScrollView(
                       child: GestureDetector(
                         onTap: viewModel.readText,
                         onDoubleTap: viewModel.setupTts,
+                        onLongPress: viewModel.startLoop,
                         child: Container(
                           child: Text(
                             viewModel.whatIsOnCamera,
@@ -45,13 +42,19 @@ class GetCameraView extends StackedView<GetCameraViewModel> {
                     ),
                   ],
                 ),
-                MaterialButton(
-                  color: Colors.red.withOpacity(0.5),
-                  onPressed: viewModel.goBack,
-                  child: const Text(
-                    "Zpět",
-                    style: TextStyle(color: Colors.white, fontSize: 45),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                      color: Colors.red.withOpacity(0.5),
+                      onPressed: viewModel.goBack,
+                      child: const Text(
+                        "Go back",
+                        style: TextStyle(color: Colors.white, fontSize: 45),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
